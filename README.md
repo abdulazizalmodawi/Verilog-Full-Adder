@@ -37,3 +37,10 @@ This project implements a 1-bit Full Adder that performs binary addition using t
 Abdulaziz Al-Modawi  
 Computer Engineering Student  
 King Khalid University
+## Live Simulation
+
+The Full Adder was successfully tested using EDA Playground.
+
+All 8 test cases passed.
+
+[View Simulation](https://www.edaplayground.com/x/GpQ8)
