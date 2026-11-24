@@ -3,11 +3,13 @@
 
 ### 1-Bit Binary Adder | Digital Logic Design
 
-A simple digital circuit designed using **Verilog HDL** to demonstrate how binary addition works at the hardware level.
+A simple digital circuit built using **Verilog HDL** to demonstrate how binary addition works at the hardware level.
 
-The Full Adder adds three 1-bit inputs and produces two outputs: a **Sum** and a **Carry**.
+A Full Adder adds three 1-bit inputs and produces two outputs: **Sum** and **Carry-Out**.
 
 **8 Test Cases Passed | Verilog HDL | EDA Playground**
+
+---
 
 ## How It Works
 
@@ -22,13 +24,45 @@ It produces two outputs:
 - `s` — Sum bit
 - `co` — Carry-out bit
 
-The logic is based on two equations:
+The circuit uses XOR, AND, and OR logic gates to calculate the result.
 
-**Sum:** `s = a XOR b XOR ci`
+**Sum equation:**
 
-**Carry:** `co = (a AND b) OR (ci AND (a XOR b))`
+`S = A XOR B XOR Ci`
 
-For example, when `a = 1`, `b = 1`, and `ci = 1`, the result is a Sum of `1` and a Carry of `1`.
+**Carry equation:**
+
+`Co = (A AND B) OR (Ci AND (A XOR B))`
+
+For example, when A = 1, B = 1, and Ci = 1, the output is Sum = 1 and Carry = 1.
+
+---
+
+## Logic Diagram
+
+The following diagram shows how a 1-bit Full Adder calculates the sum and carry outputs.
+
+~~~mermaid
+flowchart LR
+    A["Input A"] --> XOR1["XOR"]
+    B["Input B"] --> XOR1
+
+    XOR1 --> XOR2["XOR"]
+    CI["Carry In"] --> XOR2
+    XOR2 --> SUM["Sum"]
+
+    A --> AND1["AND"]
+    B --> AND1
+
+    XOR1 --> AND2["AND"]
+    CI --> AND2
+
+    AND1 --> OR1["OR"]
+    AND2 --> OR1
+    OR1 --> CARRY["Carry Out"]
+~~~
+
+---
 
 ## Truth Table
 
@@ -43,28 +77,36 @@ For example, when `a = 1`, `b = 1`, and `ci = 1`, the result is a Sum of `1` and
 | 1 | 1 | 0 | 0 | 1 |
 | 1 | 1 | 1 | 1 | 1 |
 
+---
+
 ## Project Files
 
 | File | Description |
 |---|---|
-| `fa.v` | Full Adder circuit written in Verilog |
+| `fa.v` | Full Adder circuit written in Verilog HDL |
 | `fa_tb.v` | Testbench covering all 8 input combinations |
+
+---
 
 ## Simulation & Verification
 
-The Full Adder was simulated using **EDA Playground**.
+The Full Adder was tested using **EDA Playground**.
 
-The testbench covers all eight possible input combinations.
+The testbench verifies all eight possible input combinations.
 
 **Verification Result: 8 Passed, 0 Failed**
 
 [View Live Simulation on EDA Playground](https://www.edaplayground.com/x/GpQ8)
+
+---
 
 ## Technologies
 
 - Verilog HDL
 - Digital Logic Design
 - EDA Playground
+
+---
 
 ## Author
 
